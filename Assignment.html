@@ -1,0 +1,154 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap page2</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">-->
+    <link href="style.css" rel="stylesheet" />
+   
+  </head>
+  <body style="background-color:powderblue;">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <nav class="navbar navbar-default navbar-inverse bg-warning navbar-fixed-top">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-target="#main" data-toggle="collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>      </div>
+
+                <div class="navbar-collapse collapse" id="main">
+                  <ul class="nav navbar-nav ">
+                      <li class="active"><a href="page1.html">Home</a></li>
+                      <li><a href="#">About</a></li>
+                      <li><a href="#">Contact</a></li>
+                      <li><a href="#">Products</a></li>
+                  </ul>
+
+                  <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search" name="">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </form>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="active"><button class="btn btn-primary pull-right" data-target="#loginModal" data-toggle="modal">Login</button></li>
+                  </ul>
+
+                  
+                </div>
+                  
+             </nav>
+             <div class="modal" id="loginModal" tabindex="-1">
+               <div class="modal-dialog">
+                 <div class="modal-content">
+                  <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Login</h4></div>
+                    
+                 </div>
+                 
+                 <div class="modal-body">
+                     <form>
+
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input class="form-control" type="text" placeholder="Name" name=""/>
+                  </div>   
+                   <div class="form-group">
+                    <label>Password</label>
+                    <input class="form-control" type="password" placeholder="Password" name=""/>
+                  </div> 
+                    </form>
+                 </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary">Login</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                 </div>
+               </div>
+             </div>
+                <br><br><br><br>
+                <div class="col-md-6">  <button class="btn btn-info btn-lg" id="mybutton">Image Carousel</button></div>
+               
+                  <br><br><br><br><br><br>
+                <div id="outerdiv" style="background-color:#EEEEEE; height: 30px; width: 516px; padding: 5px">
+                    <div id="innerdiv" style=" background-color: blue; height: 19px; width: 0px; color: white; text-align: center;"></div>
+                </div>
+
+                <div class="modal" id="loginModal" tabindex="-1">
+               <div class="modal-dialog">
+                 <div class="modal-content">
+                  <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Login</h4></div>
+                    
+                 </div>
+                 
+                 <div class="modal-body">
+                     <form>
+
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input class="form-control" type="text" placeholder="Name" name=""/>
+                  </div>   
+                   <div class="form-group">
+                    <label>Password</label>
+                    <input class="form-control" type="password" placeholder="Password" name=""/>
+                  </div> 
+                    </form>
+                 </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary">Login</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                 </div>
+               </div>
+             </div>
+               
+</div></div></div>
+
+            
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#mybutton').click(function() {
+          animateprogress(100);
+          if($('#innerdiv').width()==500)
+          {
+          $('#loginModal').modal('show');
+        }
+        });
+
+        function animateprogress(percentagecompleted)
+        {
+          $('#innerdiv').animate({
+            'width':(500*percentagecompleted)/100
+
+          }, 3000);
+          $({counter: 1}).animate({ counter: percentagecompleted}, {
+            duration:3000, 
+            step: function()
+            {
+              $('#innerdiv').text(Math.ceil(this.counter) + '%')
+            }
+          })
+
+        }
+          
+      
+      });
+    </script>
+
+  </body>
+</html>
